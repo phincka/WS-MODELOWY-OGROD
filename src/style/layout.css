@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap');
+
+html {
+  font-family: 'Montserrat', sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  background-color: #fff;
+  color: #000;
+
+  font-size: 0.52085vw;
+  font-weight: 400;
+  scroll-behavior: smooth;
+}
+
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+
+main{
+  margin-top: 7rem;
+}
+
+.layout{
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.preload * {
+  transition: none !important;
+}
+
+@media screen and (max-width: 800px) { 
+	html {
+		font-size: 2.5vw;
+  }
+
+  main{
+    width: 100%;
+    height: auto;
+
+    margin-top: 0;
+  }
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+/* ::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+} */
+*::selection {
+  background-color: var(--pcolor);
+  color: var(--white);
+}
+
+
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+img,
+article,
+main,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+
+
+
+
+button {
+  background: transparent;
+}
+
+li:empty,
+p:empty {
+  display: none;
+}
+
+textarea,
+select,
+input,
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  color: inherit;
+  cursor: pointer;
+  background: transparent;
+}
+
+strong {
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: .2s;
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield !important;
+}
+
+sup {
+  vertical-align: super;
+  font-size: smaller;
+}
+
+/* wp */
+
+html {
+  margin-top: 0 !important;
+}
+
+#wpadminbar {
+  opacity: 0.1;
+}
+
+#wpadminbar:hover {
+  opacity: .3;
+}
+
+.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+.aligncenter,
+div.aligncenter {
+  display: block;
+  margin: 5px auto 5px auto;
+}
+
+.alignright {
+  float: right;
+  margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+}
+
+a img.alignright {
+  float: right;
+  margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+b {
+  font-weight: 700;
+}
+
+
+label {
+  cursor: pointer;
+}
+
+pre {
+  font-size: 2rem;
+}

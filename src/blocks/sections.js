@@ -1,0 +1,7 @@
+export { default as HomepageHero } from "./HomepageHero"
+export { default as HomepageAbout } from "./HomepageAbout"
+export { default as NumbersLoadingBlock } from "./NumbersLoadingBlock"
+export { default as ServicesBlock } from "./ServicesBlock"
+export { default as GallerySectionBlock } from "./GallerySectionBlock"
+export { default as CategriesSectionBlock } from "./CategriesSectionBlock"
+export { default as PartnersSectionBlock } from "./PartnersSectionBlock"
