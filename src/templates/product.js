@@ -19,7 +19,7 @@ export default function Product(props) {
   const { title, text, text1, text2, text3, text4 } = props.pageContext.content[0]
 
   return (
-    <Layout>
+    <Layout {...props.pageContext.metadata}>
       <PageHeader data={props.pageContext.category} />
 
       <section css={style}>

@@ -13,8 +13,9 @@ export default function AllCategoriesPage({ data }) {
     text: data.text,
   }
 
+
   return (
-    <Layout>
+    <Layout {...data.metadata}>
       <PageHeader data={pageHeader} />
       <CategriesSection hideTitle={true} />
     </Layout>

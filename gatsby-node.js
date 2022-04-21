@@ -1094,6 +1094,14 @@ module.exports.createPages = async ({ graphql, actions }) => {
           node {
             slug 
             title
+
+            metadata {
+              title
+              description
+              image {
+                url
+              }
+            }
            
             thumbnail{
               alt
@@ -1138,6 +1146,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
         context: {
           slug: post.node.slug,
           title: post.node.title,
+          metadata: post.node.metadata,
           text: post.node.text,
           thumbnail: post.node.thumbnail,
           content: post.node.content,
@@ -1160,6 +1169,14 @@ module.exports.createPages = async ({ graphql, actions }) => {
               gatsbyImageData
               url 
             }
+
+            metadata {
+              title
+              description
+              image {
+                url
+              }
+            }
           }
         }
       }
@@ -1180,6 +1197,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
         context: {
           slug: post.node.slug,
           title: post.node.title,
+          metadata: post.node.metadata,
           text: post.node.text,
           banerImg: post.node.banerImg,
         },

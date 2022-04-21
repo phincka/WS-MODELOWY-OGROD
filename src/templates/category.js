@@ -10,7 +10,7 @@ export default function Product(props) {
   const products = props.data.allDatoCmsProduct.edges
 
   return (
-    <Layout>
+    <Layout {...props.pageContext.metadata}>
       <PageHeader data={props.pageContext} />
 
       <section css={style}>
