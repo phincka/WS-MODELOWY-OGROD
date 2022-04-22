@@ -12,7 +12,6 @@ import telIcon from "../assets/telIcon";
 const parse = require('html-react-parser');
 
 
-
 export default function ServicesPage({ data }) {
   data = data.allDatoCmsContactPage.edges[0].node
 
