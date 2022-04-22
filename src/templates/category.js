@@ -15,7 +15,6 @@ export default function Product(props) {
 
       <section css={style}>
         {products.map((single) => {
-          console.log(single.node)
           return <BigProduct key={single.node.id} data={single.node} categorySlug={props.pageContext.slug} />
         })}
       </section>

@@ -5,7 +5,6 @@ import BigCategory from "./bigCategory";
 
 
 export default function CategriesSection({hideTitle}) {
-  console.log()
   const data = useStaticQuery(graphql`
     query categriesSectionQuery {
       allDatoCmsCategory{

@@ -34,7 +34,7 @@ export default function SocialMedia({data}) {
     <div css={style}>
       {data &&
         data.map((link) => (
-          <a key={link.id} href={link.url} target="_blank" rel="noreferrer" style={{ backgroundColor: getBgcColor(link.service) }}>
+          <a key={link.id} href={link.url} aria-label="socialMedia" target="_blank" rel="noreferrer" style={{ backgroundColor: getBgcColor(link.service) }}>
             {getIcon(link.service)}
           </a>
         )
