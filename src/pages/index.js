@@ -69,6 +69,8 @@ export const query = graphql`
               images {
                 gatsbyImageData
                 alt
+                width
+                height
               }
               buttons{
                 title

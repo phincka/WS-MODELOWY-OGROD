@@ -1,12 +1,29 @@
-import * as React from "react"
+import React, { useEffect } from 'react';
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { mobile, colCenter, tit50, txt18, btn2, colors } from '../style/index'
+
+import PhotoSwipeLightbox from 'photoswipe/lightbox';
+import 'photoswipe/style.css';
 
 const parse = require('html-react-parser');
 
 
 export default function GallerySectionBlock({ heading, text, images, buttons}) {
   const button = buttons[0]
+
+  useEffect(() => {
+    let lightbox = new PhotoSwipeLightbox({
+      gallery: '#gallery',
+      children: 'a',
+      pswpModule: () => import('photoswipe'),
+    });
+    lightbox.init();
+
+    return () => {
+      lightbox.destroy();
+      lightbox = null;
+    };
+  }, []);
 
   return (
     <section css={style}>
@@ -16,15 +33,25 @@ export default function GallerySectionBlock({ heading, text, images, buttons}) {
       </header>
 
       <div css={style.content}>
-        <div css={style.content.grid}>
+        <div css={style.content.grid} id="gallery">
           {
             images.map(image => {
               return (
-                <GatsbyImage
-                  alt={image.alt ? image.alt : 'alt'}
-                  image={getImage(image)}
-                  css={style.content.grid.image}
-                />
+                <a
+                  href={getImage(image).images.fallback.src}
+                  data-pswp-width={image.width}
+                  data-pswp-height={image.height}
+                  target="_blank"
+                  key={image.path}
+                  rel="noreferrer"
+                  css={style.image}
+                >
+                  <GatsbyImage
+                    alt={image.alt ? image.alt : 'alt'}
+                    image={getImage(image)}
+                    css={style.content.grid.image}
+                  />
+                </a>
               )
             })
           }
@@ -42,20 +69,6 @@ export default function GallerySectionBlock({ heading, text, images, buttons}) {
   )
 }
 
-
-
-// export const query = graphql`
-//   fragment DatoCmsGallerySectionBlock on GallerySectionBlock {
-//     id
-//     heading
-//     text
-//     images {
-//       id
-//       gatsbyImageData
-//       alt
-//     }
-//   }
-// `
 
 
 const grid = (col, gap) => {

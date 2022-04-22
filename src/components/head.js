@@ -2,24 +2,34 @@ import * as React from 'react'
 import { Helmet } from 'react-helmet'
 
 export default function Head ({
+  favicon,
+  siteName,
   title,
   description,
   image,
+  titleSuffix,
+  fallbackSeo
 }) {
   return (
     <Helmet
       htmlAttributes={{
         lang: 'pl',
       }}>
+      
+      <title>{title}{titleSuffix}</title>
+
+      <link rel="icon" type="image/png" href={favicon} />
+
       <meta charSet='utf-8' />
-      <title>{title}</title>
-      {description && <meta name='description' property='og:description' content={description} />}
-      <meta property='og:title' content={title} />
-      {image && <meta property='og:image' content={image.url} />}
-      <meta name='twitter:card' content='summary' />
-      <meta name='twitter:title' content={title} />
-      {description && <meta name='twitter:description' content={description} />}
-      {image && <meta name='twitter:image' content={image.url} />}
+      <meta name="description" content={description} />
+      <meta name="theme-color" content="#7D597F" />
+      <meta property="og:url" content="/" />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content={fallbackSeo.title} />
+      <meta property="og:image" content={image} />
+      <meta property="og:description" content={fallbackSeo.description} />
+      <meta property="og:site_name" content={siteName} />
+      <meta property="og:locale" content="pl" /> 
     </Helmet>
   )
 }
