@@ -1,48 +1,24 @@
 import * as React from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import SectionHeader from "../components/sectionHeader";
+import Image from "../components/image";
 
-import { mobile, colCenter, verticalCenter, tit50, txt18 } from '../style/index'
+import { mobile, colCenter, verticalCenter, txt18 } from '../style/index'
 
 const parse = require('html-react-parser');
 
 export default function HomepageAbout({ heading, text, text2, image}) {
   return (
     <section css={style}>
-      <header>
-        <h2>{heading}</h2>
-        <p>{parse(text)}</p>
-      </header>
+      <SectionHeader title={heading} text={text} />
 
       <div css={style.content}>
-        {image && (
-          <GatsbyImage
-            alt={image.alt ? image.alt : 'alt'}
-            image={getImage(image)}
-            css={style.image}
-          />
-        )}
+        <Image style={style.image} img={image} />
 
         <p>{parse(text2)}</p>
       </div>
     </section>
   )
 }
-
-
-
-// export const query = graphql`
-//   fragment HomepageAboutContent on HomepageAbout {
-//     id
-//     heading
-//     text
-//     text2
-//     image {
-//       id
-//       gatsbyImageData
-//       alt
-//     }
-//   }
-// `
 
 
 const style = {
@@ -57,19 +33,6 @@ const style = {
     padding: '0 1.4rem',
     marginTop: '4rem',
   },
-    header: {
-      marginBottom: '1.4rem',
-        h2: {
-          ...tit50,
-
-          marginBottom: '1rem',
-          textAlign: 'center',
-        },
-        p: {
-          ...txt18,
-          textAlign: 'center',
-        }
-    },
 
     content: {
       ...verticalCenter,

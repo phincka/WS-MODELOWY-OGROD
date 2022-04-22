@@ -1,5 +1,5 @@
 import * as React from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import Image from "./image"
 
 import { centerCol, tit40, txt18, colors } from '../style/index'
 
@@ -10,14 +10,7 @@ export default function SingleService(props) {
   if (url) {
     return (
       <a href={url} css={style}>
-        {image && (
-          <GatsbyImage
-            alt={image.alt ? image.alt : 'alt'}
-            image={getImage(image)}
-            css={style.image}
-          />
-        )}
-
+        <Image style={style.image} img={image} />
         <h2>{title}</h2>
 
         <button css={style.btn}>Dowiedz się więcej &gt;</button>
@@ -26,13 +19,7 @@ export default function SingleService(props) {
   }else{
     return (
       <div css={style}>
-        {image && (
-          <GatsbyImage
-            alt={image.alt ? image.alt : 'alt'}
-            image={getImage(image)}
-            css={style.image}
-          />
-        )}
+        <Image style={style.image} img={image} />
 
         <h2>{title}</h2>
       </div>

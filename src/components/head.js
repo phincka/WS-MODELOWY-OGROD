@@ -23,11 +23,10 @@ export default function Head ({
       <meta charSet='utf-8' />
       <meta name="description" content={description} />
       <meta name="theme-color" content="#7D597F" />
-      <meta property="og:url" content="/" />
+      <meta property="og:url" content="https://modelowyogrod.pl" />
       <meta property="og:type" content="website" />
       <meta property="og:title" content={fallbackSeo.title} />
       <meta property="og:image" content={image} />
-      <meta property="og:description" content={fallbackSeo.description} />
       <meta property="og:site_name" content={siteName} />
       <meta property="og:locale" content="pl" /> 
     </Helmet>

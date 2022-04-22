@@ -36,6 +36,14 @@ export const hover = '@media (hover:hover) and (pointer: fine)'
 export const touch = '@media (hover: none)'
 
 
+export const grid = (col, gap) => {
+  return {
+    display: 'grid',
+    gridTemplateColumns: `repeat(${col}, 1fr)`,
+    gap: gap,
+  }
+}
+
 export const center = {
   display: 'flex',
   justifyContent: 'center',

@@ -2,7 +2,7 @@ import * as React from "react"
 import Layout from "../components/layout"
 import PageHeader from "../components/pageHeader"
 
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import Image from "../components/image";
 import { mobile, colStart, tit36, txt18, colors } from '../style/index'
 import sun from "../assets/sun"
 import snow from "../assets/snow"
@@ -23,13 +23,7 @@ export default function Product(props) {
       <PageHeader data={props.pageContext.category} />
 
       <section css={style}>
-        {thumbnail && (
-          <GatsbyImage
-            alt={thumbnail.alt ? thumbnail.alt : 'alt'}
-            image={getImage(thumbnail)}
-            css={style.image}
-          />
-        )}
+        <Image style={style.image} img={thumbnail} />
 
         <div css={style.content}>
           <h2>{title}</h2>

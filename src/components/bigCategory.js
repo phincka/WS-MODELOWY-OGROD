@@ -1,5 +1,5 @@
 import * as React from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import Image from "./image"
 
 import { mobile, centerCol, tit40, colors } from '../style/index'
 
@@ -7,14 +7,8 @@ import { mobile, centerCol, tit40, colors } from '../style/index'
 export default function BigCategory({ slug, title, thumbnail}) {
 
   return (
-    <a css={style} href={`${slug}`}>
-      {thumbnail && (
-        <GatsbyImage
-          alt={thumbnail.alt ? thumbnail.alt : 'alt'}
-          image={getImage(thumbnail)}
-          css={style.thumbnail}
-        />
-      )}
+    <a css={style} href={`/${slug}`}>
+      <Image style={style.thumbnail} img={thumbnail} />
 
       <h3>{title}</h3>
 

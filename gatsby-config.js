@@ -1,6 +1,5 @@
 // support for .env, .env.development, and .env.production
-require("dotenv").config()
-require("dotenv").config({
+require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 })
 
@@ -15,7 +14,7 @@ module.exports = {
     {
       resolve: "gatsby-source-datocms",
       options: {
-        apiToken: '653e31af1e46e367156fdb72968675',
+        apiToken: process.env.DATOCMS_API_TOKEN,
       },
     },
     "gatsby-plugin-emotion",

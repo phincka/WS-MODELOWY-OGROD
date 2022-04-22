@@ -1,5 +1,5 @@
 import * as React from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import Image from "./image"
 
 import { mobile, centerCol, tit48, txt18, colors } from '../style/index'
 
@@ -11,13 +11,7 @@ export default function PageHeader({data}) {
 
   return (
     <header css={style}>
-      {banerImg && (
-        <GatsbyImage
-          alt={banerImg.alt ? banerImg.alt : 'alt'}
-          image={getImage(banerImg)}
-          css={style.image}
-        />
-      )}
+      <Image style={style.image} img={banerImg} />
 
       <h1>{title}</h1>
 

@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import PageHeader from "../components/pageHeader"
 import BigProduct from "../components/bigProduct"
-import { mobile } from "../style"
+import { grid, mobile } from "../style"
 import CategriesSection from "../components/CategriesSection"
 
 export default function Product(props) {
@@ -46,13 +46,6 @@ export const query = graphql`
   }
 `
 
-const grid = (col, gap) => {
-  return {
-    display: 'grid',
-    gridTemplateColumns: `repeat(${col}, 1fr)`,
-    gap: gap,
-  }
-}
 
 const style = {
   ...grid(3, '6.9rem 10rem'),

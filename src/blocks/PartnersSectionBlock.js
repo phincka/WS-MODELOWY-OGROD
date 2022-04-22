@@ -1,21 +1,13 @@
 import * as React from "react"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { mobile, colCenter, tit50, txt18, txt20, colors } from '../style/index'
-
-const parse = require('html-react-parser');
+import { mobile, colCenter, txt20 } from '../style/index'
+import SectionHeader from "../components/sectionHeader";
 
 
 export default function PartnersSectionBlock({ heading, text, images }) {
   return (
     <section css={style}>
-      <header>
-        <h2>{heading}</h2>
-
-        {text && (
-          <p>{parse(text)}</p>
-        )}
-        
-      </header>
+      <SectionHeader title={heading} text={text} />
 
       <div css={style.content}>
         <div css={style.content.grid}>
@@ -41,21 +33,6 @@ export default function PartnersSectionBlock({ heading, text, images }) {
 }
 
 
-
-// export const query = graphql`
-//   fragment DatoCmsPartnersSectionBlock on PartnersSectionBlock {
-//     id
-//     heading
-//     text
-//     images {
-//       id
-//       gatsbyImageData
-//       alt,
-//     }
-//   }
-// `
-
-
 const style = {
   ...colCenter,
 
@@ -67,20 +44,6 @@ const style = {
 
   [mobile]: {
     marginBottom: '6rem'
-  },
-  header: {
-    marginBottom: '3.5rem',
-    h2: {
-      ...tit50,
-      textAlign: 'center',
-
-    },
-    p: {
-      ...txt18,
-      color: colors.white,
-      textAlign: 'center',
-      marginTop: '1rem',
-    }
   },
 
   content: {

@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import NavItem from './navItem'
+import Image from "./image"
 
 import { mobile, center, txt18, colors, verticalCenter, txt24 } from '../style/index'
 import telIcon from "../assets/telIcon";
@@ -46,12 +46,7 @@ export default function Header() {
   return (
     <header css={style}>
       <a css={style.logo} href="/">
-        {logo && (
-          <GatsbyImage
-            alt={logo.alt ? logo.alt : 'alt'}
-            image={getImage(logo)}
-          />
-        )}
+        <Image img={logo} />
       </a>
 
       <button css={style.openMenu} aria-label="open menu" className={`buttonOpen${open}`} onClick={() => setOpen(!open)}>

@@ -1,12 +1,10 @@
 import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import SocialMedia from "./socialMedia";
 
 import { mobile, center, spaceBetweenCenter, colCenter, txt18, txt14, colors, centerCol, tit48, tit40, txt24 } from '../style/index'
 import telIcon from "../assets/telIcon";
-
-
+import Image from "./image"
 
 const parse = require('html-react-parser');
 
@@ -44,13 +42,7 @@ export default function Footer(props) {
   return (
     <footer css={style}>
       <div css={style.top}>
-        {image && (
-          <GatsbyImage
-            alt={image.alt ? image.alt : 'alt'}
-            image={getImage(image)}
-            css={style.top.image}
-          />
-        )}
+        <Image style={style.top.image} img={image} />
 
         <div css={style.top.content}>
           <h2>{heading}</h2>

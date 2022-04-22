@@ -1,7 +1,8 @@
 import * as React from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-
-import { mobile, colCenter, tit50, tit40, txt18, btn1 } from '../style/index'
+import { mobile, colCenter, tit40, btn1 } from '../style/index'
+import SectionHeader from "../components/sectionHeader";
+import Button from "../components/button"
+import Image from "../components/image";
 
 
 export default function ServicesBlock({ heading, image, buttons}) {
@@ -9,48 +10,17 @@ export default function ServicesBlock({ heading, image, buttons}) {
 
   return (
     <section css={style}>
-      <header>
-        <h2>{heading}</h2>
-      </header>
+      <SectionHeader title={heading} />
 
       <div css={style.content}>
-        {image && (
-          <GatsbyImage
-            alt={image.alt ? image.alt : 'alt'}
-            image={getImage(image)}
-            css={style.content.image}
-          />
-        )}
+        <Image style={style.content.image} img={image} />
 
         <h3>Zakładanie i pielęgnacja ogrodów</h3>
-
-        {
-          button && (
-            <a css={btn1} href={button.url}>
-              <span>{button.title}</span>
-            </a>
-          )
-        }
+        <Button style={btn1} button={button} />
       </div>
     </section>
   )
 }
-
-
-
-// export const query = graphql`
-//   fragment ServicesBlockContent on ServicesBlock {
-//     id
-//     heading
-//     text
-//     image {
-//       id
-//       gatsbyImageData
-//       alt
-//     }
-//   }
-// `
-
 
 
 const style = {
@@ -65,20 +35,6 @@ const style = {
     padding: '0 1.4rem',
     marginTop: '4rem',
   },
-
-    header: {
-      marginBottom: '3.5rem',
-        h2: {
-          ...tit50,
-
-          marginBottom: '1rem',
-          textAlign: 'center',
-        },
-        p: {
-          ...txt18,
-          textAlign: 'center',
-        }
-    },
 
     content: {
       ...colCenter,

@@ -1,6 +1,7 @@
 import * as React from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { centerCol, tit70, tit40, btn1, colors } from '../style/index'
+import Button from '../components/button'
+import Image from "../components/image";
 
 const parse = require('html-react-parser');
 
@@ -12,22 +13,8 @@ export default function HomepageHero({ heading, text, image, buttons}) {
       <h1>{heading}</h1>
       <p>{ parse(text) }</p>
 
-      {
-        button && (
-          <a css={style.btn} href={button.url}>
-            <span>{button.title}</span>
-          </a>
-        )
-      }
-      
-
-      {image && (
-        <GatsbyImage
-          alt={image.alt ? image.alt : 'alt'}
-          image={getImage(image)}
-          css={style.image}
-        />
-      )}
+      <Button style={style.btn} button={button} />
+      <Image style={style.image} img={image} />
     </section>
   )
 }

@@ -7,7 +7,7 @@ import 'photoswipe/style.css';
 
 import Layout from "../components/layout"
 import PageHeader from "../components/pageHeader"
-import { mobile } from "../style"
+import { grid, mobile } from "../style"
 
 
 export default function Gallery({ data }) {
@@ -97,13 +97,6 @@ export const query = graphql`
   }
 `
 
-const grid = (col, gap) => {
-  return {
-    display: 'grid',
-    gridTemplateColumns: `repeat(${col}, 1fr)`,
-    gap: gap,
-  }
-}
 
 const style = {
   ...grid(2, '2rem'),

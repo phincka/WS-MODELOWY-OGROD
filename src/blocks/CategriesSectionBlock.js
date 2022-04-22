@@ -1,18 +1,14 @@
 import * as React from "react"
-import { mobile, colCenter, tit50, txt18, colors } from '../style/index'
+import { grid, mobile, colCenter, tit50, txt18, colors } from '../style/index'
 import BigCategory from "../components/bigCategory";
-
-const parse = require('html-react-parser');
+import SectionHeader from "../components/sectionHeader";
 
 
 export default function CategriesSectionBlock({ heading, text, categories }) {
 
   return (
     <section css={style}>
-      <header>
-        <h2>{heading}</h2>
-        <p>{parse(text)}</p>
-      </header>
+      <SectionHeader title={heading} text={text} />
 
       <div css={style.grid}>
         {
@@ -25,30 +21,6 @@ export default function CategriesSectionBlock({ heading, text, categories }) {
       </div>
     </section>
   )
-}
-
-
-
-// export const query = graphql`
-//   fragment DatoCmsGallerySectionBlock on GallerySectionBlock {
-//     id
-//     heading
-//     text
-//     images {
-//       id
-//       gatsbyImageData
-//       alt
-//     }
-//   }
-// `
-
-
-const grid = (col, gap) => {
-  return {
-    display: 'grid',
-    gridTemplateColumns: `repeat(${col}, 1fr)`,
-    gap: gap,
-  }
 }
 
 

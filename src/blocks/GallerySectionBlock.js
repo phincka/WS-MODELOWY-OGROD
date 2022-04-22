@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { mobile, colCenter, tit50, txt18, btn2, colors } from '../style/index'
+import { grid, mobile, colCenter, tit50, txt18, btn2, colors } from '../style/index'
+import SectionHeader from "../components/sectionHeader";
 
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
 import 'photoswipe/style.css';
-
-const parse = require('html-react-parser');
+import Button from '../components/button';
 
 
 export default function GallerySectionBlock({ heading, text, images, buttons}) {
@@ -27,10 +27,7 @@ export default function GallerySectionBlock({ heading, text, images, buttons}) {
 
   return (
     <section css={style}>
-      <header>
-        <h2>{heading}</h2>
-        <p>{parse(text)}</p>
-      </header>
+      <SectionHeader title={heading} text={text} />
 
       <div css={style.content}>
         <div css={style.content.grid} id="gallery">
@@ -57,26 +54,10 @@ export default function GallerySectionBlock({ heading, text, images, buttons}) {
           }
         </div>
 
-        {
-          button && (
-            <a css={style.content.btn} href={button.url}>
-              <span>{button.title}</span>
-            </a>
-          )
-        }
+        <Button style={style.content.btn} button={button} />
       </div>
     </section>
   )
-}
-
-
-
-const grid = (col, gap) => {
-  return {
-    display: 'grid',
-    gridTemplateColumns: `repeat(${col}, 1fr)`,
-    gap: gap,
-  }
 }
 
 

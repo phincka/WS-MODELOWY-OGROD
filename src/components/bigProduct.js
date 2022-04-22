@@ -1,8 +1,8 @@
 import * as React from "react"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 import { centerCol, tit36, txt18, btn1 } from '../style/index'
 import ProductType from "./productType"
+import Image from "./image"
 
 
 export default function BigProduct({ data, categorySlug }) {
@@ -11,19 +11,12 @@ export default function BigProduct({ data, categorySlug }) {
   return (
     <a css={style} href={`/${categorySlug}/${slug}`}>
       <ProductType type={productType} />
-
-      {thumbnail && (
-        <GatsbyImage
-          alt={thumbnail.alt ? thumbnail.alt : 'alt'}
-          image={getImage(thumbnail)}
-          css={style.thumbnail}
-        />
-      )}
+      <Image style={style.thumbnail} img={thumbnail} />
 
       <h3>{text}</h3>
       <h2>{title}</h2>
 
-      <button css={style.btn} href="#">
+      <button css={style.btn}>
         <span>dowiedz się więcej</span>
       </button>
     </a>

@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import PageHeader from "../components/pageHeader"
 import SingleService from "../components/singleService"
-import { mobile } from "../style"
+import { mobile, grid } from "../style"
 
 
 export default function ServicesPage({data}) {
@@ -62,13 +62,6 @@ export const query = graphql`
   }
 `
 
-const grid = (col, gap) => {
-  return {
-    display: 'grid',
-    gridTemplateColumns: `repeat(${col}, 1fr)`,
-    gap: gap,
-  }
-}
 
 const style = {
   ...grid(2, '3.2rem 20rem'),

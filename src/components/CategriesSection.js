@@ -1,6 +1,6 @@
 import * as React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { mobile, colCenter, tit50, colors } from '../style/index'
+import { grid, mobile, colCenter, tit50, colors } from '../style/index'
 import BigCategory from "./bigCategory";
 
 
@@ -46,16 +46,6 @@ export default function CategriesSection({hideTitle}) {
       </div>
     </section>
   )
-}
-
-
-
-const grid = (col, gap) => {
-  return {
-    display: 'grid',
-    gridTemplateColumns: `repeat(${col}, 1fr)`,
-    gap: gap,
-  }
 }
 
 

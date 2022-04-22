@@ -2,14 +2,15 @@ import React, { useRef, useState } from "react"
 import { graphql } from "gatsby"
 import emailjs from '@emailjs/browser';
 
-
 import { mobile, center, txt24, txt18, txt16, colors, tit40, btn1, colStart, verticalCenter, txt14 } from '../style/index'
 import Layout from "../components/layout"
 import PageHeader from "../components/pageHeader"
 import SocialMedia from "../components/socialMedia";
 import telIcon from "../assets/telIcon";
 
+
 const parse = require('html-react-parser');
+
 
 
 export default function ServicesPage({ data }) {
@@ -27,7 +28,7 @@ export default function ServicesPage({ data }) {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_34l8kb6', 'template_gc6r2eh', form.current, '-KX2eJzNt1gjbH8xR')
+    emailjs.sendForm(process.env.GATSBY_SERVICE_ID, process.env.GATSBY_TEMPLATE_ID, form.current, process.env.GATSBY_USER_ID)
       .then(() => {
         setFormResult('Dziękujemy za kontakt. Postaramy się odpowiedzieć w najbliższym czasie.')
       }, error => {
